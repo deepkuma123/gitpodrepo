@@ -1,0 +1,44 @@
+image: gitpod/workspace-full
+
+# Prebuild the Docker image with Node.js v14 and MySQL 5.6
+# This speeds up the startup time for each workspace
+# Remove the prebuild section if you don't need it
+# Note: this prebuilds the full workspace image, including all dependencies and tools.
+# This can make your image large and slow to download.
+# See https://www.gitpod.io/docs/config-docker/
+# for information on how to optimize the prebuild for your project.
+#prebuilds:
+#  full: node:14 && mysql:5.6
+
+# Configure the workspace
+# See https://www.gitpod.io/docs/config-gitpod-file/ for more configuration options
+tasks:
+  - init: |
+      #set version to all terminal
+      echo 'export PATH=/home/gitpod/.nvm/versions/node/v14.21.3/bin:$PATH' >> ~/.bashrc
+      #set java version to all terminal
+      echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >> ~/.bashrc
+      echo 'export PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH' >> ~/.bashrc
+
+
+      # Install Node.js v14
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+      source ~/.bashrc
+      nvm install 14
+      node -v
+      npm -v
+      
+      #install jdk version 1.8
+      curl -s "https://get.sdkman.io" | bash
+      source "$HOME/.sdkman/bin/sdkman-init.sh"
+      sdk install java 8.0.302-open
+
+
+      # Install MySQL 5.6
+      sudo apt-get update
+      sudo apt-get install -y mysql-server
+      sudo service mysql start
+    command: npm start
+
+  
+    
