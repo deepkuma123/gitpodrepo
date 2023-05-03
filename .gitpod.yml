@@ -1,3 +1,4 @@
+
 image: gitpod/workspace-full
 
 # Prebuild the Docker image with Node.js v14 and MySQL 5.6
@@ -17,8 +18,7 @@ tasks:
       #set version to all terminal
       echo 'export PATH=/home/gitpod/.nvm/versions/node/v14.21.3/bin:$PATH' >> ~/.bashrc
       #set java version to all terminal
-      echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >> ~/.bashrc
-      echo 'export PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH' >> ~/.bashrc
+      echo 'export JAVA_HOME=~/.sdkman/candidates/java/8.0.302-open/' >> ~/.bashrc
 
 
       # Install Node.js v14
@@ -42,3 +42,6 @@ tasks:
 
   
     
+vscode:
+  extensions:
+    - vscjava.vscode-maven
