@@ -18,7 +18,7 @@ tasks:
       #set version to all terminal
       echo 'export PATH=/home/gitpod/.nvm/versions/node/v14.21.3/bin:$PATH' >> ~/.bashrc
       #set java version to all terminal
-      echo 'export JAVA_HOME=~/.sdkman/candidates/java/8.0.302-open/' >> ~/.bashrc
+      echo 'export JAVA_HOME=/home/gitpod/.sdkman/candidates/java/8.0.302-zulu' >> ~/.bashrc
 
 
       # Install Node.js v14
