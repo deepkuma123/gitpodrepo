@@ -31,7 +31,7 @@ tasks:
       #install jdk version 1.8
       curl -s "https://get.sdkman.io" | bash
       source "$HOME/.sdkman/bin/sdkman-init.sh"
-      sdk install java 8.0.302-open
+      sdk install java 8.0.302-zulu
 
 
       # Install MySQL 5.6
